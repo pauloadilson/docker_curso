@@ -8,6 +8,9 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 880
+EXPOSE 80
+
+VOLUME [ "/app/feedback" ] 
+# inside container
 
 CMD [ "node", "server.js" ]
