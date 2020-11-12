@@ -15,4 +15,4 @@ EXPOSE 80
 # instead, you should define it in docker run [-v name:/app/feedback] 
 # bind mounts can't be defined into dockerfile either, must be in docker run 
 
-CMD [ "node", "server.js" ]
+CMD [ "npm", "start" ]
