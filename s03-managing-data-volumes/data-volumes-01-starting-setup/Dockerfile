@@ -8,7 +8,9 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 80
+ENV PORT 80
+
+EXPOSE $PORT
 
 # VOLUME [ "/app/feedback" ] anonymous volumes: inside container
 # named volumes can't be defined into dockerfile 
