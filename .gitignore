@@ -27,3 +27,4 @@ Vagrantfile
 *.pdf
 oldbutgold/
 *.zip
+.vscode/
