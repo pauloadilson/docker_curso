@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+require('dotenv').config();
 
 const express = require('express');
 const mongoose = require('mongoose');
@@ -44,7 +45,7 @@ app.get('/goals', async(req, res) => {
 });
 
 app.post('/goals', async(req, res) => {
-    console.log('TRYING TO STORE GOAL!!');
+    console.log('TRYING TO STORE GOAL!');
     const goalText = req.body.text;
 
     if (!goalText || goalText.trim().length === 0) {
@@ -83,7 +84,8 @@ app.delete('/goals/:id', async(req, res) => {
 });
 
 mongoose.connect(
-    'mongodb://mongodb/course-goals', {
+    `mongodb://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@mongodb/course-goals?authSource=admin`, {
+        // `mongodb://pauloadilson:secret@mongodb/course-goals?authSource=admin`, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
     },
@@ -93,6 +95,7 @@ mongoose.connect(
             console.error(err);
         } else {
             console.log('CONNECTED TO MONGODB');
+            //console.log(process.env)
             app.listen(process.env.PORT);
         }
     }
