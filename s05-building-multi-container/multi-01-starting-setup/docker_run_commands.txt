@@ -1,10 +1,15 @@
 Develpment enrironment
 
+Network
+# docker network create goals-net
+
 BD
+# docker build -t goals-be .
 # docker run -d --name mongodb --rm -v data:/data/db --network goals-net -e MONGO_INITDB_ROOT_USERNAME=pauloadilson -e MONGO_INITDB_ROOT_PASSWORD=secret mongo
 Não precisa expor a porta
 
 Back-end
+# docker build -t goals-be .
 # docker run -p 80:80 --name goals-be --rm  -v $(pwd):/app -v /app/node_modules -v logs:/app/logs --network goals-net  goals-be
 Precisa expor a porta
 
