@@ -12,6 +12,29 @@ services:
       - ./env/mongo.env
     # networks:
     #   - goals-net
-#  backend:
+  backend:
+    build: ./backend
+#    build:
+#      context: ./backend
+#      dockerfile: Dockerfile
+#      args:
+#        - arg=value 
+#    image: 'goals-be'
+    ports:
+      - '80:80'
+    volumes:
+      - logs:/app/logs
+#      - $(pwd):/app
+      - ./backend:/app
+      - /app/node_modules
+    env_file:
+      - ./env/backend.env
+    depends_on:
+      - mongodb
 
 #  frontend:
+
+
+volumes:
+  data:
+  logs:

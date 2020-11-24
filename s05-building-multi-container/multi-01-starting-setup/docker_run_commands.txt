@@ -16,7 +16,8 @@ Não precisa expor a porta
 
 Back-end
 # docker build -t goals-be .
-# docker run -p 80:80 \
+# docker run \
+    -p 80:80 \
     --name goals-be \
     -d \
     --rm  \
@@ -29,7 +30,8 @@ Precisa expor a porta
 
 Front-end
 # docker build -t goals-fe .
-# docker run -p 3000:3000 \
+# docker run /
+    -p 3000:3000 \
     --name goals-fe \
     -d \
     --rm \
