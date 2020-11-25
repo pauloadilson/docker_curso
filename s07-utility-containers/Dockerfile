@@ -2,4 +2,6 @@ FROM node:14-alpine
 
 WORKDIR /app
 
-CMD ['executable']
+ENTRYPOINT ["npm"]
+
+#append to the final of the docker run command
