@@ -28,3 +28,4 @@ Vagrantfile
 oldbutgold/
 *.zip
 .vscode/
+*.pem
